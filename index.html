@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PMILOC Operations Organization</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7f9;
+      padding: 16px;
+    }
+
+    .page-header {
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 3px solid #007baa;
+    }
+
+    .page-title {
+      font-size: 22px;
+      font-weight: bold;
+      color: #007baa;
+    }
+
+    .page-subtitle {
+      font-size: 13px;
+      color: #888;
+      margin-top: 4px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 16px;
+    }
+
+    .committee-card {
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+
+    .committee-header {
+      background: #007baa;
+      padding: 12px 16px;
+    }
+
+    .committee-name {
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    .committee-body {
+      padding: 0 16px 12px 16px;
+    }
+
+    .role-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid #f0f0f0;
+      gap: 12px;
+    }
+
+    .role-row:last-of-type {
+      border-bottom: none;
+    }
+
+    .role-label {
+      font-size: 12px;
+      color: #888;
+      flex: 1.2;
+      line-height: 1.5;
+      padding-top: 1px;
+    }
+
+    .role-names {
+      flex: 1;
+      text-align: right;
+    }
+
+    .member-name {
+      display: block;
+      font-size: 13px;
+      color: #333;
+      font-weight: bold;
+      line-height: 1.6;
+    }
+
+    .member-vacant {
+      display: block;
+      font-size: 13px;
+      color: #bbb;
+      font-style: italic;
+    }
+
+    .member-count {
+      font-size: 11px;
+      color: #aaa;
+      margin-top: 10px;
+      text-align: right;
+      padding-top: 4px;
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .status-msg {
+      color: #666;
+      font-size: 14px;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .error-msg {
+      color: #c00;
+      font-size: 14px;
+      padding: 20px 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-header">
+    <div class="page-title">Operations Organization</div>
+    <div class="page-subtitle">PMI Lakeshore Chapter &mdash; Only approved entries are shown</div>
+  </div>
+
+  <div id="org-container">
+    <p class="status-msg">Loading...</p>
+  </div>
+
+  <script>
+    // *** ONLY LINE YOU EVER NEED TO CHANGE ***
+    const FEED_URL = "https://script.google.com/macros/s/AKfycbz4z4h7dUoD1Aa2btlRzSU4jYyVt8yxAFvT4A3GrGz9/dev";
+
+    fetch(FEED_URL)
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById("org-container");
+
+        if (!Array.isArray(data) || data.length === 0) {
+          container.innerHTML = "<p class='status-msg'>No approved members found. Make sure the Approved column is set to Yes in the sheet.</p>";
+          return;
+        }
+
+        // Step 1: Group by committee, preserving sheet row order
+        const committeeMap = {};
+        const committeeOrder = [];
+
+        data.forEach(m => {
+          const committee = m.committee || "General";
+          if (!committeeMap[committee]) {
+            committeeMap[committee] = {};
+            committeeOrder.push(committee);
+          }
+
+          // Step 2: Within each committee, group by role (preserving role order)
+          const roleMap = committeeMap[committee];
+          if (!roleMap[m.role]) roleMap[m.role] = [];
+          if (m.name) roleMap[m.role].push(m.name);
+        });
+
+        // Sort committees alphabetically
+        committeeOrder.sort();
+
+        const grid = document.createElement("div");
+        grid.className = "grid";
+
+        committeeOrder.forEach(committeeName => {
+          const roleMap = committeeMap[committeeName];
+          const roles = Object.keys(roleMap);
+
+          const roleRows = roles.map(role => {
+            const names = roleMap[role];
+            const namesHtml = names.length > 0
+              ? names.map(n => `<span class="member-name">${n}</span>`).join("")
+              : `<span class="member-vacant">Vacant</span>`;
+
+            return `
+              <div class="role-row">
+                <span class="role-label">${role}</span>
+                <div class="role-names">${namesHtml}</div>
+              </div>`;
+          }).join("");
+
+          // Count unique filled members
+          const totalNames = roles.reduce((sum, r) => sum + roleMap[r].length, 0);
+
+          const card = document.createElement("div");
+          card.className = "committee-card";
+          card.innerHTML = `
+            <div class="committee-header">
+              <div class="committee-name">${committeeName}</div>
+            </div>
+            <div class="committee-body">
+              ${roleRows}
+              <div class="member-count">${totalNames} member${totalNames !== 1 ? "s" : ""}</div>
+            </div>`;
+
+          grid.appendChild(card);
+        });
+
+        container.innerHTML = "";
+        container.appendChild(grid);
+      })
+      .catch(() => {
+        document.getElementById("org-container").innerHTML =
+          "<p class='error-msg'>Unable to load member data. Please try again later.</p>";
+      });
+  </script>
+
+</body>
+</html>
