@@ -58,26 +58,19 @@
     .committee-card {
       background: #F8F9FA;
       border-radius: 12px;
-      border-top: 4px solid #4f17a9;
+      border-top: 4px solid #ff6110;
       padding: 22px;
       margin-bottom: 20px;
     }
 
-    .committee-card:nth-child(3n+1) { border-top-color: #4f17a9; }
-    .committee-card:nth-child(3n+2) { border-top-color: #0bbfe0; }
-    .committee-card:nth-child(3n+3) { border-top-color: #ff6110; }
-
     .committee-name {
       font-size: 18px;
       font-weight: bold;
-      color: #4f17a9;
+      color: #ff6110;
       margin-bottom: 16px;
       padding-bottom: 10px;
       border-bottom: 1px solid #e1e4e8;
     }
-
-    .committee-card:nth-child(3n+2) .committee-name { color: #0bbfe0; }
-    .committee-card:nth-child(3n+3) .committee-name { color: #ff6110; }
 
     table {
       width: 100%;
@@ -86,11 +79,8 @@
     }
 
     thead tr {
-      background-color: #4f17a9;
+      background-color: #ff6110;
     }
-
-    .committee-card:nth-child(3n+2) thead tr { background-color: #0bbfe0; }
-    .committee-card:nth-child(3n+3) thead tr { background-color: #ff6110; }
 
     thead th {
       padding: 10px 12px;
@@ -113,12 +103,14 @@
       border: 1px solid #e1e4e8;
       color: #333;
       line-height: 1.6;
-      vertical-align: top;
+      vertical-align: middle;
     }
 
     td.role-cell {
       color: #555;
       width: 40%;
+      text-align: center;
+      font-style: italic;
     }
 
     td.name-cell {
@@ -172,7 +164,7 @@
 
   <script>
     // *** ONLY LINE YOU EVER NEED TO CHANGE ***
-    const FEED_URL = "https://script.google.com/macros/s/AKfycbzxv_bfhbkLBIbvIxzpMGgEnZB4VZFirkTfSY0PyvDQuj_RJWT_iAvityw3yfyApRS3dw/exec";
+    const FEED_URL = "https://script.google.com/macros/s/AKfycbzXh1oGRr9UsHxbtL3ag8WvayyV6SF16qvJ0ERCfY6dkpG_RKQDfcUQ1wjLZ0obXn7RuQ/exec";
 
     fetch(FEED_URL)
       .then(res => res.json())
@@ -205,18 +197,28 @@
           const roleMap = committeeMap[committeeName];
           const roles = Object.keys(roleMap);
 
+          // Use rowspan so role cell spans all names for that role
           const rows = roles.map(role => {
             const names = roleMap[role];
+
             if (names.length === 0) {
               return `<tr>
                 <td class="role-cell">${role}</td>
                 <td class="name-cell"><span class="vacant">Vacant</span></td>
               </tr>`;
             }
-            return names.map((name, i) => `<tr>
-              <td class="role-cell">${i === 0 ? role : ""}</td>
+
+            // First row gets rowspan, subsequent rows only have name cell
+            const firstRow = `<tr>
+              <td class="role-cell" rowspan="${names.length}" style="vertical-align: middle; text-align: center;">${role}</td>
+              <td class="name-cell">${names[0]}</td>
+            </tr>`;
+
+            const remainingRows = names.slice(1).map(name => `<tr>
               <td class="name-cell">${name}</td>
             </tr>`).join("");
+
+            return firstRow + remainingRows;
           }).join("");
 
           const totalNames = roles.reduce((sum, r) => sum + roleMap[r].length, 0);
@@ -227,7 +229,7 @@
               <table>
                 <thead>
                   <tr>
-                    <th>Role</th>
+                    <th style="width: 40%;">Role</th>
                     <th>Name</th>
                   </tr>
                 </thead>
