@@ -8,105 +8,135 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: Arial, sans-serif;
-      background: #f4f7f9;
-      padding: 16px;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background-color: #edeef5;
+      padding: 20px;
+    }
+
+    .page-wrapper {
+      max-width: 850px;
+      margin: auto;
+      background: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #e1e4e8;
     }
 
     .page-header {
-      margin-bottom: 24px;
-      padding-bottom: 12px;
-      border-bottom: 3px solid #007baa;
+      background: linear-gradient(135deg, #4f17a9 0%, #3a0f80 100%);
+      color: #ffffff;
+      padding: 40px 32px;
+    }
+
+    .header-accent {
+      background: #ff6110;
+      height: 5px;
+      width: 52px;
+      margin-bottom: 20px;
+      border-radius: 3px;
     }
 
     .page-title {
-      font-size: 22px;
+      margin: 0;
+      font-size: 28px;
       font-weight: bold;
-      color: #007baa;
+      line-height: 1.2;
+      color: #ffffff;
     }
 
     .page-subtitle {
-      font-size: 13px;
-      color: #888;
-      margin-top: 4px;
+      margin: 10px 0 0 0;
+      font-size: 14px;
+      color: #ffffff;
+      opacity: 0.85;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
+    .page-body {
+      padding: 32px;
     }
 
     .committee-card {
-      background: #ffffff;
-      border-radius: 8px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-      overflow: hidden;
+      background: #F8F9FA;
+      border-radius: 12px;
+      border-top: 4px solid #4f17a9;
+      padding: 22px;
+      margin-bottom: 20px;
     }
 
-    .committee-header {
-      background: #007baa;
-      padding: 12px 16px;
-    }
+    .committee-card:nth-child(3n+1) { border-top-color: #4f17a9; }
+    .committee-card:nth-child(3n+2) { border-top-color: #0bbfe0; }
+    .committee-card:nth-child(3n+3) { border-top-color: #ff6110; }
 
     .committee-name {
+      font-size: 18px;
+      font-weight: bold;
+      color: #4f17a9;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e1e4e8;
+    }
+
+    .committee-card:nth-child(3n+2) .committee-name { color: #0bbfe0; }
+    .committee-card:nth-child(3n+3) .committee-name { color: #ff6110; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    thead tr {
+      background-color: #4f17a9;
+    }
+
+    .committee-card:nth-child(3n+2) thead tr { background-color: #0bbfe0; }
+    .committee-card:nth-child(3n+3) thead tr { background-color: #ff6110; }
+
+    thead th {
+      padding: 10px 12px;
       color: #ffffff;
-      font-size: 15px;
+      text-align: left;
       font-weight: bold;
+      border: 1px solid rgba(255,255,255,0.2);
     }
 
-    .committee-body {
-      padding: 0 16px 12px 16px;
+    tbody tr {
+      background: #ffffff;
     }
 
-    .role-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      padding: 10px 0;
-      border-bottom: 1px solid #f0f0f0;
-      gap: 12px;
+    tbody tr:nth-child(even) {
+      background-color: #f8f9fa;
     }
 
-    .role-row:last-of-type {
-      border-bottom: none;
-    }
-
-    .role-label {
-      font-size: 12px;
-      color: #888;
-      flex: 1.2;
-      line-height: 1.5;
-      padding-top: 1px;
-    }
-
-    .role-names {
-      flex: 1;
-      text-align: right;
-    }
-
-    .member-name {
-      display: block;
-      font-size: 13px;
+    tbody td {
+      padding: 10px 12px;
+      border: 1px solid #e1e4e8;
       color: #333;
-      font-weight: bold;
       line-height: 1.6;
+      vertical-align: top;
     }
 
-    .member-vacant {
-      display: block;
-      font-size: 13px;
-      color: #bbb;
+    td.role-cell {
+      color: #555;
+      width: 40%;
+    }
+
+    td.name-cell {
+      font-weight: bold;
+      color: #333;
+    }
+
+    .vacant {
+      color: #aaa;
       font-style: italic;
+      font-weight: normal;
     }
 
     .member-count {
-      font-size: 11px;
-      color: #aaa;
-      margin-top: 10px;
+      font-size: 12px;
+      color: #888;
       text-align: right;
-      padding-top: 4px;
-      border-top: 1px solid #f0f0f0;
+      margin-top: 10px;
     }
 
     .status-msg {
@@ -126,13 +156,18 @@
 </head>
 <body>
 
-  <div class="page-header">
-    <div class="page-title">Operations Organization</div>
-    <div class="page-subtitle">PMI Lakeshore Chapter &mdash; Only approved entries are shown</div>
-  </div>
+  <div class="page-wrapper">
+    <div class="page-header">
+      <div class="header-accent"></div>
+      <h1 class="page-title">Operations Organization</h1>
+      <p class="page-subtitle">PMI Lakeshore Chapter &mdash; Only approved entries are shown</p>
+    </div>
 
-  <div id="org-container">
-    <p class="status-msg">Loading...</p>
+    <div class="page-body">
+      <div id="org-container">
+        <p class="status-msg">Loading...</p>
+      </div>
+    </div>
   </div>
 
   <script>
@@ -145,11 +180,11 @@
         const container = document.getElementById("org-container");
 
         if (!Array.isArray(data) || data.length === 0) {
-          container.innerHTML = "<p class='status-msg'>No approved members found. Make sure the Approved column is set to Yes in the sheet.</p>";
+          container.innerHTML = "<p class='status-msg'>No approved members found. Make sure the Approved column is set to yes in the sheet.</p>";
           return;
         }
 
-        // Step 1: Group by committee, preserving sheet row order
+        // Group by committee preserving order
         const committeeMap = {};
         const committeeOrder = [];
 
@@ -159,55 +194,50 @@
             committeeMap[committee] = {};
             committeeOrder.push(committee);
           }
-
-          // Step 2: Within each committee, group by role (preserving role order)
           const roleMap = committeeMap[committee];
           if (!roleMap[m.role]) roleMap[m.role] = [];
           if (m.name) roleMap[m.role].push(m.name);
         });
 
-        // Sort committees alphabetically
         committeeOrder.sort();
 
-        const grid = document.createElement("div");
-        grid.className = "grid";
-
-        committeeOrder.forEach(committeeName => {
+        const cards = committeeOrder.map(committeeName => {
           const roleMap = committeeMap[committeeName];
           const roles = Object.keys(roleMap);
 
-          const roleRows = roles.map(role => {
+          const rows = roles.map(role => {
             const names = roleMap[role];
-            const namesHtml = names.length > 0
-              ? names.map(n => `<span class="member-name">${n}</span>`).join("")
-              : `<span class="member-vacant">Vacant</span>`;
-
-            return `
-              <div class="role-row">
-                <span class="role-label">${role}</span>
-                <div class="role-names">${namesHtml}</div>
-              </div>`;
+            if (names.length === 0) {
+              return `<tr>
+                <td class="role-cell">${role}</td>
+                <td class="name-cell"><span class="vacant">Vacant</span></td>
+              </tr>`;
+            }
+            return names.map((name, i) => `<tr>
+              <td class="role-cell">${i === 0 ? role : ""}</td>
+              <td class="name-cell">${name}</td>
+            </tr>`).join("");
           }).join("");
 
-          // Count unique filled members
           const totalNames = roles.reduce((sum, r) => sum + roleMap[r].length, 0);
 
-          const card = document.createElement("div");
-          card.className = "committee-card";
-          card.innerHTML = `
-            <div class="committee-header">
+          return `
+            <div class="committee-card">
               <div class="committee-name">${committeeName}</div>
-            </div>
-            <div class="committee-body">
-              ${roleRows}
+              <table>
+                <thead>
+                  <tr>
+                    <th>Role</th>
+                    <th>Name</th>
+                  </tr>
+                </thead>
+                <tbody>${rows}</tbody>
+              </table>
               <div class="member-count">${totalNames} member${totalNames !== 1 ? "s" : ""}</div>
             </div>`;
+        }).join("");
 
-          grid.appendChild(card);
-        });
-
-        container.innerHTML = "";
-        container.appendChild(grid);
+        container.innerHTML = cards;
       })
       .catch(() => {
         document.getElementById("org-container").innerHTML =
