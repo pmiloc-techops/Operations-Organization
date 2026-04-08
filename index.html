@@ -6,7 +6,6 @@
   <title>PMILOC Operations Organization</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
       font-family: helvetica, arial, sans-serif;
       font-size: 14px;
@@ -14,20 +13,19 @@
       padding: 16px;
       background: #fff;
     }
-
     h2 {
+      font-family: helvetica, arial, sans-serif;
       font-size: 16px;
       color: #333;
       margin: 24px 0 8px 0;
       text-decoration: underline;
+      font-weight: bold;
     }
-
     table {
       border-collapse: collapse;
       width: 100%;
       margin-bottom: 8px;
     }
-
     td {
       border: 1px solid #ccc;
       padding: 8px 10px;
@@ -35,22 +33,18 @@
       vertical-align: middle;
       line-height: 1.5;
     }
-
     td:first-child {
       width: 46%;
     }
-
     .role-bold td:first-child,
     .role-bold td:last-child {
       font-weight: bold;
     }
-
     .status-msg {
       color: #666;
       font-size: 13px;
       padding: 12px 0;
     }
-
     .error-msg {
       color: #c00;
       font-size: 13px;
@@ -59,29 +53,23 @@
   </style>
 </head>
 <body>
-
   <div id="org-container">
     <p class="status-msg">Loading...</p>
   </div>
-
   <script>
     // *** ONLY LINE YOU EVER NEED TO CHANGE ***
     const FEED_URL = "https://script.google.com/macros/s/AKfycbw7RnIaCP4uVKft29cnOgInR9nZ_Z-mlO8B-cP4Ew6LB76EOzH7nRYFYBflOmbykHzBvw/exec";
-
     fetch(FEED_URL)
       .then(res => res.json())
       .then(data => {
         const container = document.getElementById("org-container");
-
         if (!Array.isArray(data) || data.length === 0) {
           container.innerHTML = "<p class='status-msg'>No approved members found.</p>";
           return;
         }
-
         // Group by committee preserving sheet order
         const committeeMap = {};
         const committeeOrder = [];
-
         data.forEach(m => {
           const committee = m.committee || "General";
           if (!committeeMap[committee]) {
@@ -92,22 +80,15 @@
           if (!roleMap[m.role]) roleMap[m.role] = [];
           if (m.name) roleMap[m.role].push(m.name);
         });
-
-        //committeeOrder.sort();
-
         let html = "";
-
         committeeOrder.forEach(committeeName => {
           const roleMap = committeeMap[committeeName];
           const roles = Object.keys(roleMap);
-
           html += `<h2>${committeeName}</h2>`;
           html += `<table>`;
-
           roles.forEach((role, roleIndex) => {
             const names = roleMap[role];
             const isBold = roleIndex < 2; // Director and Portfolio Manager rows bold
-
             if (names.length === 0) {
               html += `<tr class="${isBold ? 'role-bold' : ''}">
                 <td>&nbsp;${role}</td>
@@ -127,10 +108,8 @@
               });
             }
           });
-
           html += `</table>`;
         });
-
         container.innerHTML = html;
       })
       .catch(() => {
@@ -138,6 +117,5 @@
           "<p class='error-msg'>Unable to load member data. Please try again later.</p>";
       });
   </script>
-
 </body>
 </html>
