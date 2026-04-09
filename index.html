@@ -24,8 +24,11 @@
     table {
       border-collapse: collapse;
       width: 100%;
+      table-layout: fixed;
       margin-bottom: 8px;
     }
+    col:first-child { width: 46%; }
+    col:last-child  { width: 54%; }
     td {
       border: 1px solid #ccc;
       padding: 8px 10px;
@@ -33,9 +36,7 @@
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       vertical-align: middle;
       line-height: 1.5;
-    }
-    td:first-child {
-      width: 46%;
+      word-wrap: break-word;
     }
     .role-bold td:first-child,
     .role-bold td:last-child {
@@ -61,6 +62,7 @@
     // *** ONLY LINE YOU EVER NEED TO CHANGE ***
     const FEED_URL = "https://script.google.com/macros/s/AKfycbz0_VLwsT_awD1aaMcGXMiII1nvXhQclDaTPjmvpk7ZRlj_-JxlKiuEgIrxtqb6LI4I9w/exec";
     const H2_STYLE = "font-family:'Agrandir Regular','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:33px;color:#333;margin:24px 0 8px 0;text-decoration:underline;font-weight:normal;";
+    const COLGROUP = `<colgroup><col style="width:46%"><col style="width:54%"></colgroup>`;
 
     fetch(FEED_URL)
       .then(res => res.json())
@@ -88,7 +90,7 @@
           const roleMap = committeeMap[committeeName];
           const roles = Object.keys(roleMap);
           html += `<h2 style="${H2_STYLE}">${committeeName}</h2>`;
-          html += `<table>`;
+          html += `<table>${COLGROUP}`;
           roles.forEach((role, roleIndex) => {
             const names = roleMap[role];
             const isBold = roleIndex < 2; // Director and Portfolio Manager rows bold
