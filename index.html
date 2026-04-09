@@ -7,19 +7,19 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: helvetica, arial, sans-serif;
-      font-size: 14px;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 15px;
       color: #333;
       padding: 16px;
       background: #fff;
     }
     h2 {
-      font-family: helvetica, arial, sans-serif;
-      font-size: 16px;
+      font-family: 'Agrandir Regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 33px;
       color: #333;
       margin: 24px 0 8px 0;
       text-decoration: underline;
-      font-weight: bold;
+      font-weight: normal;
     }
     table {
       border-collapse: collapse;
@@ -29,7 +29,8 @@
     td {
       border: 1px solid #ccc;
       padding: 8px 10px;
-      font-size: 12px;
+      font-size: 15px;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       vertical-align: middle;
       line-height: 1.5;
     }
@@ -58,7 +59,9 @@
   </div>
   <script>
     // *** ONLY LINE YOU EVER NEED TO CHANGE ***
-    const FEED_URL = "https://script.google.com/macros/s/AKfycbw7RnIaCP4uVKft29cnOgInR9nZ_Z-mlO8B-cP4Ew6LB76EOzH7nRYFYBflOmbykHzBvw/exec";
+    const FEED_URL = "https://script.google.com/macros/s/AKfycbz0_VLwsT_awD1aaMcGXMiII1nvXhQclDaTPjmvpk7ZRlj_-JxlKiuEgIrxtqb6LI4I9w/exec";
+    const H2_STYLE = "font-family:'Agrandir Regular','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:33px;color:#333;margin:24px 0 8px 0;text-decoration:underline;font-weight:normal;";
+
     fetch(FEED_URL)
       .then(res => res.json())
       .then(data => {
@@ -84,7 +87,7 @@
         committeeOrder.forEach(committeeName => {
           const roleMap = committeeMap[committeeName];
           const roles = Object.keys(roleMap);
-          html += `<h2>${committeeName}</h2>`;
+          html += `<h2 style="${H2_STYLE}">${committeeName}</h2>`;
           html += `<table>`;
           roles.forEach((role, roleIndex) => {
             const names = roleMap[role];
