@@ -52,17 +52,75 @@
       font-size: 13px;
       padding: 12px 0;
     }
+
+    /* Skeleton styles */
+    @keyframes shimmer {
+      0%   { background-position: -800px 0; }
+      100% { background-position:  800px 0; }
+    }
+    .skeleton-heading {
+      height: 36px;
+      width: 40%;
+      border-radius: 4px;
+      margin: 24px 0 12px 0;
+      background: linear-gradient(90deg, #ececec 25%, #e0e0e0 50%, #ececec 75%);
+      background-size: 800px 100%;
+      animation: shimmer 1.4s infinite linear;
+    }
+    .skeleton-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 8px;
+    }
+    .skeleton-table td {
+      border: 1px solid #e8e8e8;
+      padding: 10px;
+    }
+    .skeleton-bar {
+      height: 14px;
+      border-radius: 3px;
+      background: linear-gradient(90deg, #ececec 25%, #e0e0e0 50%, #ececec 75%);
+      background-size: 800px 100%;
+      animation: shimmer 1.4s infinite linear;
+    }
+    .skeleton-bar.short  { width: 55%; }
+    .skeleton-bar.medium { width: 72%; }
+    .skeleton-bar.long   { width: 88%; }
   </style>
 </head>
 <body>
-  <div id="org-container">
-    <p class="status-msg">Loading...</p>
-  </div>
+  <div id="org-container"></div>
+
   <script>
-    // *** ONLY LINE YOU EVER NEED TO CHANGE ***
     const FEED_URL = "https://script.google.com/macros/s/AKfycbz0_VLwsT_awD1aaMcGXMiII1nvXhQclDaTPjmvpk7ZRlj_-JxlKiuEgIrxtqb6LI4I9w/exec";
     const H2_STYLE = "font-family:'Agrandir Regular','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:33px;color:#333;margin:24px 0 8px 0;text-decoration:underline;font-weight:normal;";
     const COLGROUP = `<colgroup><col style="width:46%"><col style="width:54%"></colgroup>`;
+
+    // Widths to cycle through for a natural look
+    const barWidths = ['short', 'long', 'medium', 'short', 'long', 'medium', 'short'];
+
+    function buildSkeleton() {
+      let html = '';
+      // Render 4 skeleton sections
+      for (let s = 0; s < 4; s++) {
+        html += `<div class="skeleton-heading"></div>`;
+        html += `<table class="skeleton-table">${COLGROUP}<tbody>`;
+        const rows = 4 + (s % 3); // vary row count slightly per section
+        for (let r = 0; r < rows; r++) {
+          const w1 = barWidths[r % barWidths.length];
+          const w2 = barWidths[(r + 2) % barWidths.length];
+          html += `<tr>
+            <td><div class="skeleton-bar ${w1}"></div></td>
+            <td><div class="skeleton-bar ${w2}"></div></td>
+          </tr>`;
+        }
+        html += `</tbody></table>`;
+      }
+      return html;
+    }
+
+    // Show skeleton immediately
+    document.getElementById("org-container").innerHTML = buildSkeleton();
 
     fetch(FEED_URL)
       .then(res => res.json())
@@ -72,7 +130,6 @@
           container.innerHTML = "<p class='status-msg'>No approved members found.</p>";
           return;
         }
-        // Group by committee preserving sheet order
         const committeeMap = {};
         const committeeOrder = [];
         data.forEach(m => {
@@ -93,19 +150,17 @@
           html += `<table>${COLGROUP}`;
           roles.forEach((role, roleIndex) => {
             const names = roleMap[role];
-            const isBold = roleIndex < 2; // Director and Portfolio Manager rows bold
+            const isBold = roleIndex < 2;
             if (names.length === 0) {
               html += `<tr class="${isBold ? 'role-bold' : ''}">
                 <td>&nbsp;${role}</td>
                 <td><em style="color:#aaa;">Vacant</em></td>
               </tr>`;
             } else {
-              // First name: role cell with rowspan
               html += `<tr class="${isBold ? 'role-bold' : ''}">
                 <td rowspan="${names.length}" style="vertical-align:middle;">&nbsp;${role}</td>
                 <td>&nbsp;${names[0]}</td>
               </tr>`;
-              // Remaining names: just name cell
               names.slice(1).forEach(name => {
                 html += `<tr class="${isBold ? 'role-bold' : ''}">
                   <td>&nbsp;${name}</td>
