@@ -141,6 +141,11 @@
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/communications_org_july_2025.png\">Marketing, Branding & Communication</a>",
+    "role": "Sample2",
+    "name": "Sample name 2"
+  },
+  {
+    "committee": "<a href=\"https://pmiloc.org/images/downloads/communications_org_july_2025.png\">Marketing, Branding & Communication</a>",
     "role": "Quarterly Newsletter Team Members",
     "name": "Gautam Ravulapati, PMP, CQIA"
   },
@@ -187,11 +192,6 @@
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/communications_org_july_2025.png\">Marketing, Branding & Communication</a>",
     "role": "Social Media Specialists/Graphic Design Artists",
-    "name": "Ashwin Shetty"
-  },
-  {
-    "committee": "<a href=\"https://pmiloc.org/images/downloads/communications_org_july_2025.png\">Marketing, Branding & Communication</a>",
-    "role": "Social Media Specialists/Graphic Design Artists",
     "name": "Manisha Goyal"
   },
   {
@@ -208,11 +208,6 @@
     "committee": "<a href=\"https://pmiloc.org/images/downloads/communications_org_july_2025.png\">Marketing, Branding & Communication</a>",
     "role": "Social Media Specialists/Graphic Design Artists",
     "name": "Camila Canellas"
-  },
-  {
-    "committee": "<a href=\"https://pmiloc.org/images/downloads/communications_org_july_2025.png\">Marketing, Branding & Communication</a>",
-    "role": "Content Review Project Manager",
-    "name": "Monika Dhanotra, CAPM"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/communications_org_july_2025.png\">Marketing, Branding & Communication</a>",
@@ -248,6 +243,11 @@
     "committee": "<a href=\"https://pmiloc.org/images/downloads/communications_org_july_2025.png\">Marketing, Branding & Communication</a>",
     "role": "Content Proofreading Specialist",
     "name": "Allecia Lindsay, CSM"
+  },
+  {
+    "committee": "<a href=\"https://pmiloc.org/images/downloads/communications_org_july_2025.png\">Marketing, Branding & Communication</a>",
+    "role": "New new sample",
+    "name": "Sample sample name"
   },
   {
     "committee": "Technology",
