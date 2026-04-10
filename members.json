@@ -81,7 +81,7 @@
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/communications_org_july_2025.png\">Marketing, Branding & Communication</a>",
-    "role": "E-blast Team Lead ? Tips & Tricks",
+    "role": "E-blast Team Lead (Tips & Tricks)",
     "name": "Ariestides Rosales, PMP"
   },
   {
@@ -116,11 +116,6 @@
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/communications_org_july_2025.png\">Marketing, Branding & Communication</a>",
-    "role": "Sample1",
-    "name": "Sample name"
-  },
-  {
-    "committee": "<a href=\"https://pmiloc.org/images/downloads/communications_org_july_2025.png\">Marketing, Branding & Communication</a>",
     "role": "Quarterly Newsletter Team Members",
     "name": "Romeena de Almeida, PMP"
   },
@@ -138,11 +133,6 @@
     "committee": "<a href=\"https://pmiloc.org/images/downloads/communications_org_july_2025.png\">Marketing, Branding & Communication</a>",
     "role": "Quarterly Newsletter Team Members",
     "name": "Hatim Khambati"
-  },
-  {
-    "committee": "<a href=\"https://pmiloc.org/images/downloads/communications_org_july_2025.png\">Marketing, Branding & Communication</a>",
-    "role": "Sample2",
-    "name": "Sample name 2"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/communications_org_july_2025.png\">Marketing, Branding & Communication</a>",
@@ -192,6 +182,11 @@
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/communications_org_july_2025.png\">Marketing, Branding & Communication</a>",
     "role": "Social Media Specialists/Graphic Design Artists",
+    "name": "Ashwin Shetty"
+  },
+  {
+    "committee": "<a href=\"https://pmiloc.org/images/downloads/communications_org_july_2025.png\">Marketing, Branding & Communication</a>",
+    "role": "Social Media Specialists/Graphic Design Artists",
     "name": "Manisha Goyal"
   },
   {
@@ -208,6 +203,11 @@
     "committee": "<a href=\"https://pmiloc.org/images/downloads/communications_org_july_2025.png\">Marketing, Branding & Communication</a>",
     "role": "Social Media Specialists/Graphic Design Artists",
     "name": "Camila Canellas"
+  },
+  {
+    "committee": "<a href=\"https://pmiloc.org/images/downloads/communications_org_july_2025.png\">Marketing, Branding & Communication</a>",
+    "role": "Content Review Project Manager",
+    "name": "Monika Dhanotra, CAPM"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/communications_org_july_2025.png\">Marketing, Branding & Communication</a>",
@@ -245,19 +245,24 @@
     "name": "Allecia Lindsay, CSM"
   },
   {
-    "committee": "<a href=\"https://pmiloc.org/images/downloads/communications_org_july_2025.png\">Marketing, Branding & Communication</a>",
-    "role": "New new sample",
-    "name": "Sample sample name"
+    "committee": "Technology",
+    "role": "<a href=\"https://pmiloc.starchapter.com/images/pmiloc_technology_2026.pdf\">Director Technology</a>",
+    "name": "Dr. Yomi Odedeyi, MBA, PhD, LSSGB, PMP, PMI-CPMAI"
   },
   {
     "committee": "Technology",
-    "role": "Portfolio Manager ? Technology",
+    "role": "Technology Portfolio Manager",
     "name": "Anastasia Adesina, MBA, PMP, CSM"
   },
   {
     "committee": "Technology",
     "role": "Project Coordinators",
     "name": "Sambavan Suthananthan, B.Sc."
+  },
+  {
+    "committee": "Technology",
+    "role": "Project Coordinators",
+    "name": "Ruchi Kashikar"
   },
   {
     "committee": "Technology",
@@ -273,6 +278,11 @@
     "committee": "Technology",
     "role": "Project Managers & Asset Managers",
     "name": "Abodunrin Adewoye Micheal"
+  },
+  {
+    "committee": "Technology",
+    "role": "Project Managers & Asset Managers",
+    "name": "Kirstin Pareja"
   },
   {
     "committee": "Technology",
@@ -366,133 +376,138 @@
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/professional_development_organogram_march_2024.png\">Professional Development</a>",
+    "role": "<a href=\"https://pmiloc.starchapter.com/images/pmiloc_professional_development_2026.pdf\">Director Professional Development/Toastmasters</a>",
+    "name": "Mazen Zinbarakji, PMP, CSM, CSP"
+  },
+  {
+    "committee": "<a href=\"https://pmiloc.org/images/downloads/professional_development_organogram_march_2024.png\">Professional Development</a>",
     "role": "Portfolio Manager",
     "name": "Malak Attia, Ph.D., CPM, PMP, CSM"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/professional_development_organogram_march_2024.png\">Professional Development</a>",
-    "role": "Certifications & Training",
-    "name": "Program Manager ? Adish Rampal, PMP, CSM"
+    "role": "Certifications & Training (Program Manager)",
+    "name": "Adish Rampal, PMP, CSM"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/professional_development_organogram_march_2024.png\">Professional Development</a>",
-    "role": "Certifications & Training",
-    "name": "Project Coordinator ? Hiba Ahmed"
+    "role": "Certifications & Training (Project Coordinator)",
+    "name": "Hiba Ahmed"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/professional_development_organogram_march_2024.png\">Professional Development</a>",
-    "role": "Certifications & Training",
-    "name": "Project Coordinator ? Larissa Dsouza, PMP"
+    "role": "Certifications & Training (Project Coordinator)",
+    "name": "Larissa Dsouza, PMP"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/professional_development_organogram_march_2024.png\">Professional Development</a>",
-    "role": "PMIgnite",
-    "name": "Program Manager ? Syed Mahmood, PMP, CSM"
+    "role": "PMIgnite (Program Manager)",
+    "name": "Syed Mahmood, PMP, CSM"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/professional_development_organogram_march_2024.png\">Professional Development</a>",
-    "role": "PMIgnite",
-    "name": "Project Coordinator ? Victor Opaluwa, PMP, PSM"
+    "role": "PMIgnite (Project Manager)",
+    "name": "Victor Opaluwa, PMP, PSM"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/professional_development_organogram_march_2024.png\">Professional Development</a>",
-    "role": "PMIgnite",
-    "name": "Project Coordinator ? Adish Rampal, PMP, CSM"
+    "role": "PMIgnite (Project Manager)",
+    "name": "Adish Rampal, PMP, CSM"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/professional_development_organogram_march_2024.png\">Professional Development</a>",
-    "role": "PMIgnite",
-    "name": "Project Coordinator ? Simranjit Bharaj, CAPM"
+    "role": "PMIgnite (Project Coordinator)",
+    "name": "Simranjit Bharaj, CAPM"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/professional_development_organogram_march_2024.png\">Professional Development</a>",
-    "role": "PMIgnite",
-    "name": "Project Coordinator ? Nile Aein"
+    "role": "PMIgnite (Project Coordinator)",
+    "name": "Nile Aein"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/professional_development_organogram_march_2024.png\">Professional Development</a>",
-    "role": "PMIgnite",
-    "name": "Project Coordinator ? Ketki Pradhan"
+    "role": "PMIgnite (Project Coordinator)",
+    "name": "Ketki Pradhan"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/professional_development_organogram_march_2024.png\">Professional Development</a>",
-    "role": "Mentorship Program",
-    "name": "Program Manager ? Magda Vogel, PMP, CASL, CSM, CSPO"
+    "role": "Mentorship Program (Program Manager)",
+    "name": "Magda Vogel, PMP, CASL, CSM, CSPO"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/professional_development_organogram_march_2024.png\">Professional Development</a>",
-    "role": "Mentorship Program",
-    "name": "Project Coordinator ? Rosemary Adenmosun"
+    "role": "Mentorship Program (Project Coordinator)",
+    "name": "Rosemary Adenmosun"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/professional_development_organogram_march_2024.png\">Professional Development</a>",
-    "role": "Mentorship Program",
-    "name": "Project Coordinator ? Deborah Gendron"
+    "role": "Mentorship Program (Project Coordinator)",
+    "name": "Deborah Gendron"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/professional_development_organogram_march_2024.png\">Professional Development</a>",
-    "role": "Podcast Program",
-    "name": "Program Manager ? Tony Lumbwe, PMP"
+    "role": "Podcast Program (Program Manager)",
+    "name": "Tony Lumbwe, PMP"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/professional_development_organogram_march_2024.png\">Professional Development</a>",
-    "role": "Podcast Program",
-    "name": "Project Manager ? Victor Opaluwa, PMP, PSM"
+    "role": "Podcast Program (Project Manager)",
+    "name": "Victor Opaluwa, PMP, PSM"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/professional_development_organogram_march_2024.png\">Professional Development</a>",
-    "role": "Podcast Program",
-    "name": "Project Manager ? Fabiola Quezada, PMP, Master in Marketing"
+    "role": "Podcast Program (Project Manager)",
+    "name": "Fabiola Quezada, PMP, Master in Marketing"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/professional_development_organogram_march_2024.png\">Professional Development</a>",
-    "role": "Podcast Program",
-    "name": "Project Manager ? Yash Trivedi, B.Eng, MSPM"
+    "role": "Podcast Program (Project Manager)",
+    "name": "Yash Trivedi, B.Eng, MSPM"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/professional_development_organogram_march_2024.png\">Professional Development</a>",
-    "role": "Book Club",
-    "name": "Program Manager ? Magda Vogel, PMP, CASL, CSM, CSPO"
+    "role": "Book Club (Program Manager)",
+    "name": "Magda Vogel, PMP, CASL, CSM, CSPO"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/professional_development_organogram_march_2024.png\">Professional Development</a>",
-    "role": "Empowering Women in Leadership",
-    "name": "Program Manager ? Nilufer Khan, PMP, CSM, PRINCE2"
+    "role": "Empowering Women in Leadership (Program Manager)",
+    "name": "Nilufer Khan, PMP, CSM, PRINCE2"
   },
   {
     "committee": "Speak with Spark PMILOC Toastmasters Club",
-    "role": "President",
-    "name": "Harinder Pal Singh, PMP, SMC, CPPM, SAFe 5 Agilist, CDPSE"
+    "role": "Toastmasters Club Officers",
+    "name": "President - Harinder Pal Singh, PMP, SMC, CPPM, SAFe 5 Agilist, CDPSE"
   },
   {
     "committee": "Speak with Spark PMILOC Toastmasters Club",
-    "role": "VP Education",
-    "name": "Malak Attia, Ph.D., CPM, PMP, CSM"
+    "role": "Toastmasters Club Officers",
+    "name": "VP Education - Malak Attia, Ph.D., CPM, PMP, CSM"
   },
   {
     "committee": "Speak with Spark PMILOC Toastmasters Club",
-    "role": "VP Membership",
-    "name": "Ahyam Haj Ahmed"
+    "role": "Toastmasters Club Officers",
+    "name": "VP Membership - Ahyam Haj Ahmed"
   },
   {
     "committee": "Speak with Spark PMILOC Toastmasters Club",
-    "role": "VP Public Relations",
-    "name": "Mazen Zinbarakji"
+    "role": "Toastmasters Club Officers",
+    "name": "VP Public Relations - Mazen Zinbarakji"
   },
   {
     "committee": "Speak with Spark PMILOC Toastmasters Club",
-    "role": "Secretary",
-    "name": "Olalekan Bamgbose, Ph.D, PMP, SCM"
+    "role": "Toastmasters Club Officers",
+    "name": "Secretary - Olalekan Bamgbose, Ph.D, PMP, SCM"
   },
   {
     "committee": "Speak with Spark PMILOC Toastmasters Club",
-    "role": "Sergeant at Arms",
-    "name": "Najab Siddiqui, PMP"
+    "role": "Toastmasters Club Officers",
+    "name": "Sergeant at Arms - Najab Siddiqui, PMP"
   },
   {
     "committee": "Speak with Spark PMILOC Toastmasters Club",
-    "role": "Treasurer",
-    "name": "Gabriela Palivan, CPA, CMA"
+    "role": "Toastmasters Club Officers",
+    "name": "Treasurer - Gabriela Palivan, CPA, CMA"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/events_organogram_march_2024.png\">Events & Culture</a>",
@@ -506,72 +521,72 @@
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/events_organogram_march_2024.png\">Events & Culture</a>",
-    "role": "Program Manager ? Events",
+    "role": "Program Manager (Events)",
     "name": "Bhavadas Mandanath"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/events_organogram_march_2024.png\">Events & Culture</a>",
-    "role": "Program Manager ? Events",
+    "role": "Program Manager (Events)",
     "name": "Obiora Nkwocha, MEng, PMP"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/events_organogram_march_2024.png\">Events & Culture</a>",
-    "role": "Project Manager ? Events",
+    "role": "Project Manager (Events)",
     "name": "Albright Abu Baah, PMP"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/events_organogram_march_2024.png\">Events & Culture</a>",
-    "role": "Project Manager ? Events",
+    "role": "Project Manager (Events)",
     "name": "Aashay Clerk"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/events_organogram_march_2024.png\">Events & Culture</a>",
-    "role": "Project Manager ? Events",
+    "role": "Project Manager (Events)",
     "name": "Riya Bhavsar"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/events_organogram_march_2024.png\">Events & Culture</a>",
-    "role": "Project Manager ? Events",
+    "role": "Project Manager (Events)",
     "name": "Mihir Shah"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/events_organogram_march_2024.png\">Events & Culture</a>",
-    "role": "Project Manager ? Events",
+    "role": "Project Manager (Events)",
     "name": "Daldrid Pais"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/events_organogram_march_2024.png\">Events & Culture</a>",
-    "role": "Project Manager ? Events",
+    "role": "Project Manager (Events)",
     "name": "Yetunde Akinboade"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/events_organogram_march_2024.png\">Events & Culture</a>",
-    "role": "Project Manager ? Registration & PDU",
+    "role": "Project Manager (Registration & PDU)",
     "name": "Mirza Hamid Sadiq, PMP, CIAM, SMC"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/events_organogram_march_2024.png\">Events & Culture</a>",
-    "role": "Project Manager ? Event & AV Setup",
+    "role": "Project Manager (Event & AV Setup)",
     "name": "Obiora Nkwocha, MEng, PMP"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/events_organogram_march_2024.png\">Events & Culture</a>",
-    "role": "Project Manager ? Events Marketing & Media",
+    "role": "Project Manager (Events Marketing & Media)",
     "name": "Oluwaseyifunmi Ogedengbe"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/events_organogram_march_2024.png\">Events & Culture</a>",
-    "role": "Project Manager ? Speaker Management",
+    "role": "Project Manager (Speaker Management)",
     "name": "Jianfu Wu, PMP, PMI-ACP"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/events_organogram_march_2024.png\">Events & Culture</a>",
-    "role": "Project Manager ? Culture & Events",
+    "role": "Project Manager (Culture & Events)",
     "name": "Bhavadas Mandanath"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/events_organogram_march_2024.png\">Events & Culture</a>",
-    "role": "Project Manager ? Culture & Events",
+    "role": "Project Manager (Culture & Events)",
     "name": "Riya Bhavsar"
   },
   {
@@ -586,22 +601,22 @@
   },
   {
     "committee": "Program Performance Measurement Office",
-    "role": "Project Manager",
+    "role": "Project Managers",
     "name": "Syed Mahmood, PMP, CSM"
   },
   {
     "committee": "Program Performance Measurement Office",
-    "role": "Project Manager",
+    "role": "Project Managers",
     "name": "Florianne Rongalerios, CAPM"
   },
   {
     "committee": "Program Performance Measurement Office",
-    "role": "Project Manager",
+    "role": "Project Managers",
     "name": "Hirenkumar Manubhai Chaudhary"
   },
   {
     "committee": "Program Performance Measurement Office",
-    "role": "Project Manager",
+    "role": "Project Managers",
     "name": "Rishan Shevantha Mendis"
   },
   {
@@ -631,7 +646,7 @@
   },
   {
     "committee": "Finance",
-    "role": "Project Manager, PMO - Finance Support & Reporting",
+    "role": "Project Manager, PMO (Finance Support & Reporting)",
     "name": "Heather Haley, BBA"
   },
   {
@@ -681,12 +696,12 @@
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/outreach_organogram_march_2025.png\">Social Imapct & Academic Outreach</a>",
-    "role": "Project Manager ? CPAR PMWB",
+    "role": "Project Manager (CPAR PMWB)",
     "name": "Shruthi Chandrasekhara, CSM"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/outreach_organogram_march_2025.png\">Social Imapct & Academic Outreach</a>",
-    "role": "Project Manager ? CPAR PMWB",
+    "role": "Project Manager (CPAR PMWB)",
     "name": "Van David Hope Dzigba, NEBOSH IGC?, PMP?, PMI-ACP?, CSM"
   },
   {
@@ -732,7 +747,7 @@
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/outreach_organogram_march_2025.png\">Social Imapct & Academic Outreach</a>",
     "role": "Student Engagement & Publications Coordinator\nStudent Engagement/Social Impact Team Member",
-    "name": "Midhun Thomas, B.Eng, PSP, PMP"
+    "name": "Midhun Thomas, PMP"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/outreach_organogram_march_2025.png\">Social Imapct & Academic Outreach</a>",
@@ -746,8 +761,13 @@
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/outreach_organogram_march_2025.png\">Social Imapct & Academic Outreach</a>",
-    "role": "PMILOC/PMI Kerala Chapter WhizTalks",
-    "name": "Program Manager - Beaula Prashanth, PMP, LSSGB"
+    "role": "Program Manager (PMILOC/PMI Kerala Chapter WhizTalks)",
+    "name": "Beaula Prashanth, PMP, LSSGB"
+  },
+  {
+    "committee": "<a href=\"https://pmiloc.starchapter.com/images/member_care_organogram_march_2025.png\">Member Care</a>",
+    "role": "<a href=\"https://pmiloc.starchapter.com/images/pmiloc_membercare_2026.pdf\">Director Member Care</a>",
+    "name": "George Rofail, MBA, PMP, CSM"
   },
   {
     "committee": "<a href=\"https://pmiloc.starchapter.com/images/member_care_organogram_march_2025.png\">Member Care</a>",
@@ -756,37 +776,32 @@
   },
   {
     "committee": "<a href=\"https://pmiloc.starchapter.com/images/member_care_organogram_march_2025.png\">Member Care</a>",
-    "role": "Program Manager ? Member Communications",
-    "name": "Grace Rebeca Verghese, MBA, BA"
-  },
-  {
-    "committee": "<a href=\"https://pmiloc.starchapter.com/images/member_care_organogram_march_2025.png\">Member Care</a>",
-    "role": "Project Manager ? Member Communications",
+    "role": "Project Manager (Member Communications)",
     "name": "Tope Ben-Jack, PMP, ACP"
   },
   {
     "committee": "<a href=\"https://pmiloc.starchapter.com/images/member_care_organogram_march_2025.png\">Member Care</a>",
-    "role": "Project Manager ? Member Communications",
+    "role": "Project Manager (Member Communications)",
     "name": "Abimbola Adetunji, BA Sociology and World Languages"
   },
   {
     "committee": "<a href=\"https://pmiloc.starchapter.com/images/member_care_organogram_march_2025.png\">Member Care</a>",
-    "role": "Career Coaching ? PM Jump Program",
+    "role": "Career Coaching (PM Jump Program)",
     "name": "Anil Pillai, BTech., PMP, CSM"
   },
   {
     "committee": "<a href=\"https://pmiloc.starchapter.com/images/member_care_organogram_march_2025.png\">Member Care</a>",
-    "role": "Career Coaching ? PM Jump Program",
+    "role": "Career Coaching (PM Jump Program)",
     "name": "Misha Jethva, CEC, PCC"
   },
   {
     "committee": "<a href=\"https://pmiloc.starchapter.com/images/member_care_organogram_march_2025.png\">Member Care</a>",
-    "role": "Career Coaching ? PM Jump Program",
+    "role": "Career Coaching (PM Jump Program)",
     "name": "Daniela Veljkovic, MBA, PMP, CSM, ACC, CEC"
   },
   {
     "committee": "<a href=\"https://pmiloc.starchapter.com/images/member_care_organogram_march_2025.png\">Member Care</a>",
-    "role": "Project Manager ? PM Jump Program",
+    "role": "Project Manager (PM Jump Program)",
     "name": "Nadeem Mahmood, MAS, PMP, CIIP, ITILv4"
   },
   {
@@ -796,12 +811,12 @@
   },
   {
     "committee": "<a href=\"https://pmiloc.starchapter.com/images/member_care_organogram_march_2025.png\">Member Care</a>",
-    "role": "Member Retention Specialist ? New Member Orientation",
+    "role": "Member Retention Specialist (New Member Orientation)",
     "name": "Ismayil Huseynov, PMP, PSM"
   },
   {
     "committee": "<a href=\"https://pmiloc.starchapter.com/images/member_care_organogram_march_2025.png\">Member Care</a>",
-    "role": "Member Retention Specialist ? New Member Orientation",
+    "role": "Member Retention Specialist (New Member Orientation)",
     "name": "Dorna Naseri MEng, PMP"
   },
   {
@@ -811,7 +826,7 @@
   },
   {
     "committee": "<a href=\"https://pmiloc.starchapter.com/images/member_care_organogram_march_2025.png\">Member Care</a>",
-    "role": "Program Manager ? KSB & Career Day",
+    "role": "Program Manager (KSB & Career Day)",
     "name": "Kaushiki Sen, PMP, BA"
   },
   {
@@ -836,7 +851,7 @@
   },
   {
     "committee": "<a href=\"https://pmiloc.starchapter.com/images/member_care_organogram_march_2025.png\">Member Care</a>",
-    "role": "Member Care ? Reports & Analytics Analyst",
+    "role": "Member Care (Reports & Analytics Analyst)",
     "name": "Marsha Phagoo, PMP"
   },
   {
@@ -851,133 +866,133 @@
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/volunteermanagement_organogram_march_2024.png\">Volunteer Management</a>",
-    "role": "Volunteer Recruitment",
-    "name": "Program Manager ? Adelola Adegbamiye, MBA, B.Eng, PMP, CSM, CSSBB"
+    "role": "Volunteer Recruitment (Program Manager)",
+    "name": "Adelola Adegbamiye, MBA, B.Eng, PMP, CSM, CSSBB"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/volunteermanagement_organogram_march_2024.png\">Volunteer Management</a>",
-    "role": "Volunteer Recruitment",
-    "name": "Project Coordinator (Recruiting) ? Akshaya Ganesan, PMP"
+    "role": "Volunteer Recruitment (Project Coordinator)",
+    "name": "Akshaya Ganesan, PMP"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/volunteermanagement_organogram_march_2024.png\">Volunteer Management</a>",
-    "role": "Volunteer Recruitment",
-    "name": "Project Coordinator (Recruiting) ? Oyewole Oyebade"
+    "role": "Volunteer Recruitment (Project Coordinator)",
+    "name": "Oyewole Oyebade"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/volunteermanagement_organogram_march_2024.png\">Volunteer Management</a>",
-    "role": "Volunteer Recruitment",
-    "name": "Project Coordinator (Recruiting) ? Ayman Junaid, PMP"
+    "role": "Volunteer Recruitment (Project Coordinator)",
+    "name": "Ayman Junaid, PMP"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/volunteermanagement_organogram_march_2024.png\">Volunteer Management</a>",
-    "role": "Volunteer Onboarding",
-    "name": "Program Manager ? Shade Okafo, CISSP, MBA, PMP, PgMP"
+    "role": "Volunteer Onboarding (Program Manager)",
+    "name": "Shade Okafo, CISSP, MBA, PMP, PgMP"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/volunteermanagement_organogram_march_2024.png\">Volunteer Management</a>",
-    "role": "Volunteer Onboarding",
-    "name": "Project Manager ? Kate Tarutayeva, PMP"
+    "role": "Volunteer Onboarding (Project Manager)",
+    "name": "Kate Tarutayeva, PMP"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/volunteermanagement_organogram_march_2024.png\">Volunteer Management</a>",
-    "role": "Volunteer Onboarding",
-    "name": "Project Coordinator ? Claire Ketsiam"
+    "role": "Volunteer Onboarding (Project Coordinator)",
+    "name": "Claire Ketsiam"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/volunteermanagement_organogram_march_2024.png\">Volunteer Management</a>",
-    "role": "Volunteer Onboarding",
-    "name": "Project Coordinator ? Saifullah Fudzail, B.Eng"
+    "role": "Volunteer Onboarding (Project Coordinator)",
+    "name": "Saifullah Fudzail, B.Eng"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/volunteermanagement_organogram_march_2024.png\">Volunteer Management</a>",
-    "role": "Volunteer Onboarding",
-    "name": "Project Coordinator ? Ota Adesina, PMP"
+    "role": "Volunteer Onboarding (Project Coordinator)",
+    "name": "Ota Adesina, PMP"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/volunteermanagement_organogram_march_2024.png\">Volunteer Management</a>",
-    "role": "Volunteer Onboarding",
-    "name": "Project Coordinator ? Vatsal Soni, PMP, CAPM"
+    "role": "Volunteer Onboarding (Project Coordinator)",
+    "name": "Vatsal Soni, PMP, CAPM"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/volunteermanagement_organogram_march_2024.png\">Volunteer Management</a>",
-    "role": "Volunteer Onboarding",
-    "name": "Project Coordinator ? Ligia Sandoval, PMP"
+    "role": "Volunteer Onboarding (Project Coordinator)",
+    "name": "Ligia Sandoval, PMP"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/volunteermanagement_organogram_march_2024.png\">Volunteer Management</a>",
-    "role": "Volunteer Onboarding",
-    "name": "Project Coordinator ? Megan Seymour"
+    "role": "Volunteer Onboarding (Project Coordinator)",
+    "name": "Megan Seymour"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/volunteermanagement_organogram_march_2024.png\">Volunteer Management</a>",
-    "role": "Volunteer Offboarding",
-    "name": "Program Manager ? Adelola Adegbamiye, MBA, B.Eng, PMP, CSM, CSSBB"
+    "role": "Volunteer Offboarding (Program Manager)",
+    "name": "Adelola Adegbamiye, MBA, B.Eng, PMP, CSM, CSSBB"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/volunteermanagement_organogram_march_2024.png\">Volunteer Management</a>",
-    "role": "Volunteer Offboarding",
-    "name": "Project Coordinator ? John Okunade"
+    "role": "Volunteer Offboarding (Project Coordinator)",
+    "name": "John Okunade"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/volunteermanagement_organogram_march_2024.png\">Volunteer Management</a>",
-    "role": "Volunteer Offboarding",
-    "name": "Project Coordinator ? Jennifer Egbounu, PMP"
+    "role": "Volunteer Offboarding (Project Coordinator)",
+    "name": "Jennifer Egbounu, PMP"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/volunteermanagement_organogram_march_2024.png\">Volunteer Management</a>",
-    "role": "Volunteer Retention and Information Management",
-    "name": "Program Manager - Beenish Mahamood, PMP"
+    "role": "Volunteer Retention and Information Management (Program Manager)",
+    "name": "Beenish Mahamood, PMP"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/volunteermanagement_organogram_march_2024.png\">Volunteer Management</a>",
-    "role": "Volunteer Retention and Information Management",
-    "name": "Volunteer Retention Specialist - Kim Seongsuk"
+    "role": "Volunteer Retention and Information Management (Volunteer Retention Specialist)",
+    "name": "Kim Seongsuk"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/volunteermanagement_organogram_march_2024.png\">Volunteer Management</a>",
-    "role": "Volunteer Retention and Information Management",
-    "name": "Volunteer Retention Specialist - Brijesh Patel"
+    "role": "Volunteer Retention and Information Management (Volunteer Retention Specialist)",
+    "name": "Brijesh Patel"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/volunteermanagement_organogram_march_2024.png\">Volunteer Management</a>",
-    "role": "Volunteer Retention and Information Management",
-    "name": "Volunteer Retention Specialist - Harpreet Singh"
+    "role": "Volunteer Retention and Information Management (Volunteer Retention Specialist)",
+    "name": "Harpreet Singh"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/volunteermanagement_organogram_march_2024.png\">Volunteer Management</a>",
-    "role": "Volunteer Rewards & Recognition",
-    "name": "Program Manager ? Shalu Kashyap"
+    "role": "Volunteer Rewards & Recognition (Program Manager)",
+    "name": "Shalu Kashyap"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/volunteermanagement_organogram_march_2024.png\">Volunteer Management</a>",
-    "role": "Volunteer Rewards & Recognition",
-    "name": "Project Manager (R&R) ? Nnamdi (Francis) Kawekwune, PhD, PMP"
+    "role": "Volunteer Rewards & Recognition (Project Manager)",
+    "name": "Nnamdi (Francis) Kawekwune, PhD, PMP"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/volunteermanagement_organogram_march_2024.png\">Volunteer Management</a>",
-    "role": "Volunteer Rewards & Recognition",
-    "name": "Project Coordinator ? Nnohoibuk Oluyide"
+    "role": "Volunteer Rewards & Recognition (Project Coordinator)",
+    "name": "Nnohoibuk Oluyide"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/volunteermanagement_organogram_march_2024.png\">Volunteer Management</a>",
-    "role": "Volunteer Rewards & Recognition",
-    "name": "Project Coordinator ? Simranjit Bharaj, CAPM"
+    "role": "Volunteer Rewards & Recognition (Project Coordinator)",
+    "name": "Simranjit Bharaj, CAPM"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/volunteermanagement_organogram_march_2024.png\">Volunteer Management</a>",
-    "role": "Volunteer Rewards & Recognition",
-    "name": "Project Coordinator ? Ajay Sharma, PMP, CSM, ITIL"
+    "role": "Volunteer Rewards & Recognition (Project Coordinator)",
+    "name": "Ajay Sharma, PMP, CSM, ITIL"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/volunteermanagement_organogram_march_2024.png\">Volunteer Management</a>",
-    "role": "Volunteer Rewards & Recognition",
-    "name": "Project Coordinator ? Inderpreet Kaur Bimbh"
+    "role": "Volunteer Rewards & Recognition (Project Coordinator)",
+    "name": "Inderpreet Kaur Bimbh"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/volunteermanagement_organogram_march_2024.png\">Volunteer Management</a>",
-    "role": "Rewards & Recognition (R&R)",
-    "name": "Committee Chair ? Harinder Pal Singh, B.Tech, PMP, CPPM, SCM, SAFe 6 Agilist"
+    "role": "Rewards & Recognition (R&R) Committee Chair",
+    "name": "Harinder Pal Singh, B.Tech, PMP, CPPM, SCM, SAFe 6 Agilist"
   },
   {
     "committee": "<a href=\"https://pmiloc.org/images/downloads/volunteermanagement_organogram_march_2024.png\">Volunteer Management</a>",
@@ -1003,6 +1018,11 @@
     "committee": "<a href=\"https://pmiloc.org/images/downloads/volunteermanagement_organogram_march_2024.png\">Volunteer Management</a>",
     "role": "Rewards & Recognition (R&R)",
     "name": "Adebayo Ajayi, PMP, PSM, CSSBB"
+  },
+  {
+    "committee": "Chair & Governance",
+    "role": "<a href=\"https://pmiloc.starchapter.com/images/pmiloc_board_chair_2026.pdf\">Board Chair & Governance</a>",
+    "name": "Michael Ghobros, M. Eng, PMP, P. Eng"
   },
   {
     "committee": "Chair & Governance",
