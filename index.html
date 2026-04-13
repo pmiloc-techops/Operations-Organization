@@ -17,7 +17,7 @@
     }
     h2 {
       font-family: 'Agrandir Regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      font-size: 33px;
+      font-size: 28px;
       color: #4f17a7;
       margin: 16px 0 8px 0;
       text-decoration: underline;
@@ -111,6 +111,9 @@
     const COLGROUP = `<colgroup><col style="width:46%"><col style="width:54%"></colgroup>`;
     const barWidths = ['short', 'long', 'medium', 'short', 'long', 'medium', 'short'];
 
+    // *** Committees whose heading should be hidden but content still shown ***
+    const HIDE_HEADINGS = ["Board of Directors"];
+
     function buildSkeleton() {
       let html = '';
       for (let s = 0; s < 4; s++) {
@@ -163,12 +166,17 @@
         committeeOrder.forEach((committeeName, index) => {
           const roleMap = committeeMap[committeeName];
           const roles = Object.keys(roleMap);
+          const hideHeading = HIDE_HEADINGS.includes(committeeName);
 
           if (index > 0) {
             html += `<div class="section-spacer"></div>`;
           }
 
-          html += `<h2 style="${H2_STYLE}">${committeeName}</h2>`;
+          // Only render the h2 if this committee is not in the hide list
+          if (!hideHeading) {
+            html += `<h2 style="${H2_STYLE}">${committeeName}</h2>`;
+          }
+
           html += `<table>${COLGROUP}`;
 
           roles.forEach((role, roleIndex) => {
