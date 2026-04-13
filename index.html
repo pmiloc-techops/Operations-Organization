@@ -12,22 +12,33 @@
       color: #333;
       padding: 16px;
       background: #fff;
-      -webkit-font-smoothing: antialiased; /* Matches modern browser rendering */
+      -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
     h2 {
       font-family: 'Agrandir Regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
       font-size: 28px;
-      color: #333;
-      margin: 24px 0 8px 0;
+      color: #4f17a7;
+      margin: 19px 0 0 0;
       text-decoration: underline;
       font-weight: normal;
+      display: block;
+    }
+    a {
+      color: #4f17a7;
+      text-decoration: underline;
+    }
+    a:hover {
+      color: #3a1080;
+    }
+    h2 + table {
+      margin-top: 4px;
     }
     table {
       border-collapse: collapse;
       width: 100%;
       table-layout: fixed;
-      margin-bottom: 8px;
+      margin-bottom: 0;
     }
     col:first-child { width: 46%; }
     col:last-child  { width: 54%; }
@@ -43,6 +54,9 @@
     .role-bold td:first-child,
     .role-bold td:last-child {
       font-weight: bold;
+    }
+    .section-spacer {
+      height: 16px;
     }
     .status-msg {
       color: #666;
@@ -64,7 +78,7 @@
       height: 36px;
       width: 40%;
       border-radius: 4px;
-      margin: 24px 0 12px 0;
+      margin: 19px 0 4px 0;
       background: linear-gradient(90deg, #ececec 25%, #e0e0e0 50%, #ececec 75%);
       background-size: 800px 100%;
       animation: shimmer 1.4s infinite linear;
@@ -72,7 +86,7 @@
     .skeleton-table {
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: 8px;
+      margin-bottom: 0;
     }
     .skeleton-table td {
       border: 1px solid #e8e8e8;
@@ -93,101 +107,102 @@
 <body>
   <div id="org-container"></div>
 
-<script>
-  // CHANGED: Now fetching the local file pushed by Apps Script
-  // The timestamp (?t=...) ensures the browser doesn't show a stale cached version
-  const FEED_URL = `./members.json?t=${new Date().getTime()}`;
-  
-  const H2_STYLE = "font-family:'Agrandir Regular','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:33px;color:#333;margin:24px 0 8px 0;text-decoration:underline;font-weight:normal;";
-  const COLGROUP = `<colgroup><col style="width:46%"><col style="width:54%"></colgroup>`;
+  <script>
+    const FEED_URL = `./members.json?t=${new Date().getTime()}`;
+    const H2_STYLE = "font-family:'Agrandir Regular','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:28px;color:#4f17a7;margin:19px 0 0 0;text-decoration:underline;font-weight:normal;display:block;";
+    const COLGROUP = `<colgroup><col style="width:46%"><col style="width:54%"></colgroup>`;
+    const barWidths = ['short', 'long', 'medium', 'short', 'long', 'medium', 'short'];
 
-  // Widths to cycle through for a natural look
-  const barWidths = ['short', 'long', 'medium', 'short', 'long', 'medium', 'short'];
-
-  function buildSkeleton() {
-    let html = '';
-    for (let s = 0; s < 4; s++) {
-      html += `<div class="skeleton-heading"></div>`;
-      html += `<table class="skeleton-table">${COLGROUP}<tbody>`;
-      const rows = 4 + (s % 3); 
-      for (let r = 0; r < rows; r++) {
-        const w1 = barWidths[r % barWidths.length];
-        const w2 = barWidths[(r + 2) % barWidths.length];
-        html += `<tr>
-          <td><div class="skeleton-bar ${w1}"></div></td>
-          <td><div class="skeleton-bar ${w2}"></div></td>
-        </tr>`;
-      }
-      html += `</tbody></table>`;
-    }
-    return html;
-  }
-
-  // Show skeleton immediately
-  document.getElementById("org-container").innerHTML = buildSkeleton();
-
-  fetch(FEED_URL)
-    .then(res => {
-      if (!res.ok) throw new Error("File not found");
-      return res.json();
-    })
-    .then(data => {
-      const container = document.getElementById("org-container");
-      if (!Array.isArray(data) || data.length === 0) {
-        container.innerHTML = "<p class='status-msg'>No approved members found.</p>";
-        return;
-      }
-      
-      const committeeMap = {};
-      const committeeOrder = [];
-      
-      data.forEach(m => {
-        const committee = m.committee || "General";
-        if (!committeeMap[committee]) {
-          committeeMap[committee] = {};
-          committeeOrder.push(committee);
+    function buildSkeleton() {
+      let html = '';
+      for (let s = 0; s < 4; s++) {
+        html += `<div class="skeleton-heading"></div>`;
+        html += `<table class="skeleton-table">${COLGROUP}<tbody>`;
+        const rows = 4 + (s % 3);
+        for (let r = 0; r < rows; r++) {
+          const w1 = barWidths[r % barWidths.length];
+          const w2 = barWidths[(r + 2) % barWidths.length];
+          html += `<tr>
+            <td><div class="skeleton-bar ${w1}"></div></td>
+            <td><div class="skeleton-bar ${w2}"></div></td>
+          </tr>`;
         }
-        const roleMap = committeeMap[committee];
-        if (!roleMap[m.role]) roleMap[m.role] = [];
-        if (m.name) roleMap[m.role].push(m.name);
-      });
+        html += `</tbody></table>`;
+        html += `<div class="section-spacer"></div>`;
+      }
+      return html;
+    }
 
-      let html = "";
-      committeeOrder.forEach(committeeName => {
-        const roleMap = committeeMap[committeeName];
-        const roles = Object.keys(roleMap);
-        html += `<h2 style="${H2_STYLE}">${committeeName}</h2>`;
-        html += `<table>${COLGROUP}`;
-        
-        roles.forEach((role, roleIndex) => {
-          const names = roleMap[role];
-          const isBold = roleIndex < 2;
-          if (names.length === 0) {
-            html += `<tr class="${isBold ? 'role-bold' : ''}">
-              <td>&nbsp;${role}</td>
-              <td><em style="color:#aaa;">Vacant</em></td>
-            </tr>`;
-          } else {
-            html += `<tr class="${isBold ? 'role-bold' : ''}">
-              <td rowspan="${names.length}" style="vertical-align:middle;">&nbsp;${role}</td>
-              <td>&nbsp;${names[0]}</td>
-            </tr>`;
-            names.slice(1).forEach(name => {
-              html += `<tr class="${isBold ? 'role-bold' : ''}">
-                <td>&nbsp;${name}</td>
-              </tr>`;
-            });
+    document.getElementById("org-container").innerHTML = buildSkeleton();
+
+    fetch(FEED_URL)
+      .then(res => {
+        if (!res.ok) throw new Error("File not found");
+        return res.json();
+      })
+      .then(data => {
+        const container = document.getElementById("org-container");
+        if (!Array.isArray(data) || data.length === 0) {
+          container.innerHTML = "<p class='status-msg'>No approved members found.</p>";
+          return;
+        }
+
+        const committeeMap = {};
+        const committeeOrder = [];
+
+        data.forEach(m => {
+          const committee = m.committee || "General";
+          if (!committeeMap[committee]) {
+            committeeMap[committee] = {};
+            committeeOrder.push(committee);
           }
+          const roleMap = committeeMap[committee];
+          if (!roleMap[m.role]) roleMap[m.role] = [];
+          if (m.name) roleMap[m.role].push(m.name);
         });
-        html += `</table>`;
+
+        let html = "";
+        committeeOrder.forEach((committeeName, index) => {
+          const roleMap = committeeMap[committeeName];
+          const roles = Object.keys(roleMap);
+
+          if (index > 0) {
+            html += `<div class="section-spacer"></div>`;
+          }
+
+          html += `<h2 style="${H2_STYLE}">${committeeName}</h2>`;
+          html += `<table style="margin-top:4px;">${COLGROUP}`;
+
+          roles.forEach((role, roleIndex) => {
+            const names = roleMap[role];
+            const isBold = roleIndex < 2;
+            if (names.length === 0) {
+              html += `<tr class="${isBold ? 'role-bold' : ''}">
+                <td>&nbsp;${role}</td>
+                <td><em style="color:#aaa;">Vacant</em></td>
+              </tr>`;
+            } else {
+              html += `<tr class="${isBold ? 'role-bold' : ''}">
+                <td rowspan="${names.length}" style="vertical-align:middle;">&nbsp;${role}</td>
+                <td>&nbsp;${names[0]}</td>
+              </tr>`;
+              names.slice(1).forEach(name => {
+                html += `<tr class="${isBold ? 'role-bold' : ''}">
+                  <td>&nbsp;${name}</td>
+                </tr>`;
+              });
+            }
+          });
+          html += `</table>`;
+        });
+
+        container.innerHTML = html;
+      })
+      .catch((err) => {
+        console.error(err);
+        document.getElementById("org-container").innerHTML =
+          `<p class='error-msg'>Unable to load member data. Make sure to click 'Sync' in the Google Sheet first.</p>`;
       });
-      container.innerHTML = html;
-    })
-    .catch((err) => {
-      console.error(err);
-      document.getElementById("org-container").innerHTML =
-        `<p class='error-msg'>Unable to load member data. Make sure to click 'Sync' in the Google Sheet first.</p>`;
-    });
-</script>
+  </script>
 </body>
 </html>
