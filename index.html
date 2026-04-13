@@ -17,7 +17,7 @@
     }
     h2 {
       font-family: 'Agrandir Regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      font-size: 28px;
+      font-size: 33px;
       color: #4f17a7;
       margin: 16px 0 8px 0;
       text-decoration: underline;
@@ -51,6 +51,19 @@
     }
     .role-bold td:first-child,
     .role-bold td:last-child {
+      font-weight: bold;
+    }
+    /* Plain text styles for Board of Directors */
+    .plain-text-section {
+      font-size: 12px;
+      line-height: 1.8;
+      margin-top: 0;
+    }
+    .plain-text-section p {
+      margin: 0;
+      padding: 2px 0;
+    }
+    .plain-text-section strong {
       font-weight: bold;
     }
     .section-spacer {
@@ -111,8 +124,11 @@
     const COLGROUP = `<colgroup><col style="width:46%"><col style="width:54%"></colgroup>`;
     const barWidths = ['short', 'long', 'medium', 'short', 'long', 'medium', 'short'];
 
-    // *** Committees whose heading should be hidden but content still shown ***
+    // Committees whose h2 heading should be hidden
     const HIDE_HEADINGS = ["Board of Directors"];
+
+    // Committees rendered as plain text instead of a table
+    const PLAIN_TEXT = ["Board of Directors"];
 
     function buildSkeleton() {
       let html = '';
@@ -166,40 +182,52 @@
         committeeOrder.forEach((committeeName, index) => {
           const roleMap = committeeMap[committeeName];
           const roles = Object.keys(roleMap);
-          const hideHeading = HIDE_HEADINGS.includes(committeeName);
+          const hideHeading  = HIDE_HEADINGS.includes(committeeName);
+          const usePlainText = PLAIN_TEXT.includes(committeeName);
 
           if (index > 0) {
             html += `<div class="section-spacer"></div>`;
           }
 
-          // Only render the h2 if this committee is not in the hide list
+          // Render heading unless hidden
           if (!hideHeading) {
             html += `<h2 style="${H2_STYLE}">${committeeName}</h2>`;
           }
 
-          html += `<table>${COLGROUP}`;
-
-          roles.forEach((role, roleIndex) => {
-            const names = roleMap[role];
-            const isBold = roleIndex < 2;
-            if (names.length === 0) {
-              html += `<tr class="${isBold ? 'role-bold' : ''}">
-                <td>&nbsp;${role}</td>
-                <td><em style="color:#aaa;">Vacant</em></td>
-              </tr>`;
-            } else {
-              html += `<tr class="${isBold ? 'role-bold' : ''}">
-                <td rowspan="${names.length}" style="vertical-align:middle;">&nbsp;${role}</td>
-                <td>&nbsp;${names[0]}</td>
-              </tr>`;
-              names.slice(1).forEach(name => {
+          if (usePlainText) {
+            // Render as plain text: <strong>Role</strong>: Name, Name
+            html += `<div class="plain-text-section">`;
+            roles.forEach(role => {
+              const names = roleMap[role];
+              const nameStr = names.length > 0 ? names.join(", ") : "<em style='color:#aaa;'>Vacant</em>";
+              html += `<p><strong>${role}</strong>: ${nameStr}</p>`;
+            });
+            html += `</div>`;
+          } else {
+            // Render as table
+            html += `<table>${COLGROUP}`;
+            roles.forEach((role, roleIndex) => {
+              const names = roleMap[role];
+              const isBold = roleIndex < 2;
+              if (names.length === 0) {
                 html += `<tr class="${isBold ? 'role-bold' : ''}">
-                  <td>&nbsp;${name}</td>
+                  <td>&nbsp;${role}</td>
+                  <td><em style="color:#aaa;">Vacant</em></td>
                 </tr>`;
-              });
-            }
-          });
-          html += `</table>`;
+              } else {
+                html += `<tr class="${isBold ? 'role-bold' : ''}">
+                  <td rowspan="${names.length}" style="vertical-align:middle;">&nbsp;${role}</td>
+                  <td>&nbsp;${names[0]}</td>
+                </tr>`;
+                names.slice(1).forEach(name => {
+                  html += `<tr class="${isBold ? 'role-bold' : ''}">
+                    <td>&nbsp;${name}</td>
+                  </tr>`;
+                });
+              }
+            });
+            html += `</table>`;
+          }
         });
 
         container.innerHTML = html;
