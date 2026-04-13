@@ -19,7 +19,7 @@
       font-family: 'Agrandir Regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
       font-size: 28px;
       color: #4f17a7;
-      margin: 19px 0 0 0;
+      margin: 32px 0 16px 0;
       text-decoration: underline;
       font-weight: normal;
       display: block;
@@ -31,13 +31,11 @@
     a:hover {
       color: #3a1080;
     }
-    h2 + table {
-      margin-top: 4px;
-    }
     table {
       border-collapse: collapse;
       width: 100%;
       table-layout: fixed;
+      margin-top: 0;
       margin-bottom: 0;
     }
     col:first-child { width: 46%; }
@@ -56,7 +54,7 @@
       font-weight: bold;
     }
     .section-spacer {
-      height: 16px;
+      height: 32px;
     }
     .status-msg {
       color: #666;
@@ -78,7 +76,7 @@
       height: 36px;
       width: 40%;
       border-radius: 4px;
-      margin: 19px 0 4px 0;
+      margin: 32px 0 16px 0;
       background: linear-gradient(90deg, #ececec 25%, #e0e0e0 50%, #ececec 75%);
       background-size: 800px 100%;
       animation: shimmer 1.4s infinite linear;
@@ -109,7 +107,7 @@
 
   <script>
     const FEED_URL = `./members.json?t=${new Date().getTime()}`;
-    const H2_STYLE = "font-family:'Agrandir Regular','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:28px;color:#4f17a7;margin:19px 0 0 0;text-decoration:underline;font-weight:normal;display:block;";
+    const H2_STYLE = "font-family:'Agrandir Regular','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:28px;color:#4f17a7;margin:32px 0 16px 0;text-decoration:underline;font-weight:normal;display:block;";
     const COLGROUP = `<colgroup><col style="width:46%"><col style="width:54%"></colgroup>`;
     const barWidths = ['short', 'long', 'medium', 'short', 'long', 'medium', 'short'];
 
@@ -171,7 +169,7 @@
           }
 
           html += `<h2 style="${H2_STYLE}">${committeeName}</h2>`;
-          html += `<table style="margin-top:4px;">${COLGROUP}`;
+          html += `<table>${COLGROUP}`;
 
           roles.forEach((role, roleIndex) => {
             const names = roleMap[role];
