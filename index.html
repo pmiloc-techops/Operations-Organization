@@ -214,14 +214,6 @@
           html += `</table>`;
         }
       });
-
-      container.innerHTML = html;
-
-      // Final step: Resize iframe after content is fully injected
-      if (window.frameElement) {
-        const finalHeight = document.body.scrollHeight + 50;
-        window.frameElement.style.height = finalHeight + 'px';
-      }
     })
     .catch((err) => {
       console.error(err);
