@@ -244,6 +244,17 @@
         document.getElementById("org-container").innerHTML =
           `<p class='error-msg'>Unable to load member data. Make sure to click 'Sync' in the Google Sheet first.</p>`;
       });
-  </script>
+      window.onload = function() {
+        // Measure the full height of the body
+        const height = document.body.scrollHeight + 50; 
+        
+        // This command tells the Parent Page (StarChapter) to resize its iframe
+        // Note: This works only if the parent and child are on the same domain or 
+        // if StarChapter allows cross-origin style updates.
+        if (window.frameElement) {
+            window.frameElement.style.height = height + 'px';
+        }
+      };
+    </script>
 </body>
 </html>
