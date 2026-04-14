@@ -126,135 +126,108 @@
   <div id="org-container"></div>
 
   <script>
-    const FEED_URL = `./members.json?t=${new Date().getTime()}`;
-    const H2_STYLE = "font-family:'Agrandir Regular','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:28px;color:#4f17a7;margin:16px 0 8px 0;text-decoration:underline;font-weight:normal;display:block;";
-    const COLGROUP = `<colgroup><col style="width:46%"><col style="width:54%"></colgroup>`;
-    const barWidths = ['short', 'long', 'medium', 'short', 'long', 'medium', 'short'];
+  const FEED_URL = `./members.json?t=${new Date().getTime()}`;
+  const H2_STYLE = "font-family:'Agrandir Regular','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:28px;color:#4f17a7;margin:16px 0 8px 0;text-decoration:underline;font-weight:normal;display:block;";
+  const COLGROUP = `<colgroup><col style="width:46%"><col style="width:54%"></colgroup>`;
+  const barWidths = ['short', 'long', 'medium', 'short', 'long', 'medium', 'short'];
 
-    // Committees whose h2 heading should be hidden
-    const HIDE_HEADINGS = ["Board of Directors"];
+  const HIDE_HEADINGS = ["Board of Directors"];
+  const PLAIN_TEXT = ["Board of Directors"];
 
-    // Committees rendered as plain text instead of a table
-    const PLAIN_TEXT = ["Board of Directors"];
-
-    function buildSkeleton() {
-      let html = '';
-      for (let s = 0; s < 4; s++) {
-        html += `<div class="skeleton-heading"></div>`;
-        html += `<table class="skeleton-table">${COLGROUP}<tbody>`;
-        const rows = 4 + (s % 3);
-        for (let r = 0; r < rows; r++) {
-          const w1 = barWidths[r % barWidths.length];
-          const w2 = barWidths[(r + 2) % barWidths.length];
-          html += `<tr>
-            <td><div class="skeleton-bar ${w1}"></div></td>
-            <td><div class="skeleton-bar ${w2}"></div></td>
-          </tr>`;
-        }
-        html += `</tbody></table>`;
-        html += `<div class="section-spacer"></div>`;
+  function buildSkeleton() {
+    let html = '';
+    for (let s = 0; s < 4; s++) {
+      html += `<div class="skeleton-heading"></div>`;
+      html += `<table class="skeleton-table">${COLGROUP}<tbody>`;
+      const rows = 4 + (s % 3);
+      for (let r = 0; r < rows; r++) {
+        const w1 = barWidths[r % barWidths.length];
+        const w2 = barWidths[(r + 2) % barWidths.length];
+        html += `<tr><td><div class="skeleton-bar ${w1}"></div></td><td><div class="skeleton-bar ${w2}"></div></td></tr>`;
       }
-      return html;
+      html += `</tbody></table><div class="section-spacer"></div>`;
     }
+    return html;
+  }
 
-    document.getElementById("org-container").innerHTML = buildSkeleton();
+  // Inject Skeleton immediately
+  document.getElementById("org-container").innerHTML = buildSkeleton();
 
-    fetch(FEED_URL)
-      .then(res => {
-        if (!res.ok) throw new Error("File not found");
-        return res.json();
-      })
-      .then(data => {
-        const container = document.getElementById("org-container");
-        if (!Array.isArray(data) || data.length === 0) {
-          container.innerHTML = "<p class='status-msg'>No approved members found.</p>";
-          return;
+  fetch(FEED_URL)
+    .then(res => {
+      if (!res.ok) throw new Error("File not found");
+      return res.json();
+    })
+    .then(data => {
+      const container = document.getElementById("org-container");
+      if (!Array.isArray(data) || data.length === 0) {
+        container.innerHTML = "<p class='status-msg'>No approved members found.</p>";
+        return;
+      }
+
+      const committeeMap = {};
+      const committeeOrder = [];
+
+      data.forEach(m => {
+        const committee = m.committee || "General";
+        if (!committeeMap[committee]) {
+          committeeMap[committee] = {};
+          committeeOrder.push(committee);
         }
-
-        const committeeMap = {};
-        const committeeOrder = [];
-
-        data.forEach(m => {
-          const committee = m.committee || "General";
-          if (!committeeMap[committee]) {
-            committeeMap[committee] = {};
-            committeeOrder.push(committee);
-          }
-          const roleMap = committeeMap[committee];
-          if (!roleMap[m.role]) roleMap[m.role] = [];
-          if (m.name) roleMap[m.role].push(m.name);
-        });
-
-        let html = "";
-        committeeOrder.forEach((committeeName, index) => {
-          const roleMap = committeeMap[committeeName];
-          const roles = Object.keys(roleMap);
-          const hideHeading  = HIDE_HEADINGS.includes(committeeName);
-          const usePlainText = PLAIN_TEXT.includes(committeeName);
-
-          if (index > 0) {
-            html += `<div class="section-spacer"></div>`;
-          }
-
-          // Render heading unless hidden
-          if (!hideHeading) {
-            html += `<h2 style="${H2_STYLE}">${committeeName}</h2>`;
-          }
-
-          if (usePlainText) {
-            // Render as plain text: <strong>Role</strong>: Name, Name
-            html += `<div class="plain-text-section">`;
-            roles.forEach(role => {
-              const names = roleMap[role];
-              const nameStr = names.length > 0 ? names.join(", ") : "<em style='color:#aaa;'>Vacant</em>";
-              html += `<p><strong>${role}</strong>: ${nameStr}</p>`;
-            });
-            html += `</div>`;
-          } else {
-            // Render as table
-            html += `<table>${COLGROUP}`;
-            roles.forEach((role, roleIndex) => {
-              const names = roleMap[role];
-              const isBold = roleIndex < 2;
-              if (names.length === 0) {
-                html += `<tr class="${isBold ? 'role-bold' : ''}">
-                  <td>&nbsp;${role}</td>
-                  <td><em style="color:#aaa;">Vacant</em></td>
-                </tr>`;
-              } else {
-                html += `<tr class="${isBold ? 'role-bold' : ''}">
-                  <td rowspan="${names.length}" style="vertical-align:middle;">&nbsp;${role}</td>
-                  <td>&nbsp;${names[0]}</td>
-                </tr>`;
-                names.slice(1).forEach(name => {
-                  html += `<tr class="${isBold ? 'role-bold' : ''}">
-                    <td>&nbsp;${name}</td>
-                  </tr>`;
-                });
-              }
-            });
-            html += `</table>`;
-          }
-        });
-
-        container.innerHTML = html;
-      })
-      .catch((err) => {
-        console.error(err);
-        document.getElementById("org-container").innerHTML =
-          `<p class='error-msg'>Unable to load member data. Make sure to click 'Sync' in the Google Sheet first.</p>`;
+        const roleMap = committeeMap[committee];
+        if (!roleMap[m.role]) roleMap[m.role] = [];
+        if (m.name) roleMap[m.role].push(m.name);
       });
-      window.onload = function() {
-        // Measure the full height of the body
-        const height = document.body.scrollHeight + 50; 
-        
-        // This command tells the Parent Page (StarChapter) to resize its iframe
-        // Note: This works only if the parent and child are on the same domain or 
-        // if StarChapter allows cross-origin style updates.
-        if (window.frameElement) {
-            window.frameElement.style.height = height + 'px';
+
+      let html = "";
+      committeeOrder.forEach((committeeName, index) => {
+        const roleMap = committeeMap[committeeName];
+        const roles = Object.keys(roleMap);
+        const hideHeading = HIDE_HEADINGS.includes(committeeName);
+        const usePlainText = PLAIN_TEXT.includes(committeeName);
+
+        if (index > 0) html += `<div class="section-spacer"></div>`;
+        if (!hideHeading) html += `<h2 style="${H2_STYLE}">${committeeName}</h2>`;
+
+        if (usePlainText) {
+          html += `<div class="plain-text-section">`;
+          roles.forEach(role => {
+            const names = roleMap[role];
+            const nameStr = names.length > 0 ? names.join(", ") : "<em style='color:#aaa;'>Vacant</em>";
+            html += `<p><strong>${role}</strong>: ${nameStr}</p>`;
+          });
+          html += `</div>`;
+        } else {
+          html += `<table>${COLGROUP}`;
+          roles.forEach((role, roleIndex) => {
+            const names = roleMap[role];
+            const isBold = roleIndex < 2;
+            if (names.length === 0) {
+              html += `<tr class="${isBold ? 'role-bold' : ''}"><td>&nbsp;${role}</td><td><em style="color:#aaa;">Vacant</em></td></tr>`;
+            } else {
+              html += `<tr class="${isBold ? 'role-bold' : ''}"><td rowspan="${names.length}" style="vertical-align:middle;">&nbsp;${role}</td><td>&nbsp;${names[0]}</td></tr>`;
+              names.slice(1).forEach(name => {
+                html += `<tr class="${isBold ? 'role-bold' : ''}"><td>&nbsp;${name}</td></tr>`;
+              });
+            }
+          });
+          html += `</table>`;
         }
-      };
-    </script>
+      });
+
+      container.innerHTML = html;
+
+      // Final step: Resize iframe after content is fully injected
+      if (window.frameElement) {
+        const finalHeight = document.body.scrollHeight + 50;
+        window.frameElement.style.height = finalHeight + 'px';
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      document.getElementById("org-container").innerHTML =
+        `<p class='error-msg'>Unable to load member data. Sync in Google Sheet required.</p>`;
+    });
+</script>
 </body>
 </html>
